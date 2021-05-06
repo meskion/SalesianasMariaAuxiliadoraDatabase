@@ -82,5 +82,8 @@
 	-- Right Join
 	-- Muestra los alumnos junto con el numero de notas aprobadas en todas las asignaturas, ordendados por mayor numero de notas aprobadas.
 	SELECT a.nombre ,COUNT(n.nota) FROM notas n RIGHT JOIN alumno a ON a.nif= n.id_alumno WHERE n.nota >= 5 GROUP BY a.nombre ORDER BY n.nota DESC;
-
+	
+	-- Right Join
+	-- Muestra las asignaturas con la cantidad de alumnos aprobados en cada una de ellas
+	SELECT asignatura.nombre, count(asignatura.nombre) as "Aprobados" FROM asignatura RIGHT JOIN notas ON asignatura.id_asig = notas.id_asig WHERE notas.nota>5 GROUP BY asignatura.nombre ORDER BY Aprobados DESC
 
