@@ -52,10 +52,10 @@
 	SELECT asignatura.nombre, COUNT(alumno.nif), avg(notas.nota) FROM alumno JOIN notas ON alumno.nif=notas.id_alumno JOIN asignatura ON notas.id_asig=asignatura.id_asig GROUP BY asignatura.nombre HAVING (SELECT COUNT(asignatura.id_asig) FROM asignatura JOIN notas ON asignatura.id_asig=notas.id_asig WHERE notas.nota=4)> 40;
 
 	-- Muestra los profesores que cobran más de 1100 euros
-	SELECT nombre FROM profesor GROUP BY salario HAVING salario >1100
+	SELECT nombre FROM profesor GROUP BY salario HAVING salario >1100;
 
 	-- Muestra el total de alumnos que están matriculados en la modalidad "Desarrollo web"
-	SELECT matricula.modalidad,count(alumno.nombre) FROM alumno JOIN matricula ON alumno.n_matricula = matricula.n_matricula GROUP BY matricula.modalidad HAVING matricula.modalidad='Desarrollo web'
+	SELECT matricula.modalidad,count(alumno.nombre) FROM alumno JOIN matricula ON alumno.n_matricula = matricula.n_matricula GROUP BY matricula.modalidad HAVING matricula.modalidad='Desarrollo web';
 
 	-- Muestra las asignaturas cuya media de notas supera el 5.5
 	SELECT asignatura.nombre, avg(notas.nota) FROM notas JOIN asignatura ON notas.id_asig=asignatura.id_asig  GROUP BY asignatura.nombre HAVING AVG(notas.nota) >5.5;
